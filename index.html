@@ -148,7 +148,18 @@
     </p>
     <p>Thông tin chỉ nhằm mục đích tham khảo chuyên môn.</p>
   </footer>
-
+<div id="dataUpdateBanner" class="data-update-banner" hidden>
+  <div class="data-update-banner__content">
+    <div>
+      <strong>📄 Dữ liệu Google Sheets đã được cập nhật</strong>
+      <p>Nhấn “Cập nhật ngay” để tải dữ liệu mới mà không cần F5 trang.</p>
+    </div>
+    <div class="data-update-banner__actions">
+      <button id="dismissUpdateButton" class="data-update-banner__later" type="button">Để sau</button>
+      <button id="applyUpdateButton" class="data-update-banner__apply" type="button">Cập nhật ngay</button>
+    </div>
+  </div>
+</div>
   <div id="toast" class="toast" role="status" aria-live="polite"></div>
 
   <script src="https://cdn.jsdelivr.net/npm/papaparse@5.5.3/papaparse.min.js"></script>
