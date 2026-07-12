@@ -1,159 +1,150 @@
 <!DOCTYPE html>
 <html lang="vi">
-
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<meta charset="UTF-8">
+  <title>Thông tin thuốc trong thai kỳ và cho con bú</title>
+  <meta
+    name="description"
+    content="Tra cứu thông tin sử dụng thuốc cho phụ nữ mang thai và phụ nữ đang cho con bú."
+  >
+  <meta name="theme-color" content="#009879">
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  >
 
-<title>
-Thông tin thuốc cho phụ nữ mang thai và cho con bú
-</title>
-
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
-
-<link rel="stylesheet" href="style.css">
-
-
+  <link rel="stylesheet" href="./style.css">
 </head>
 
-
 <body>
-
-
-<header class="header">
-
-
-<div class="logo-area">
-
-<div class="logo-placeholder">
-TD
-</div>
-
-
-<div>
-
-<h1>
-BỆNH VIỆN ĐA KHOA<br>
-KHU VỰC THỦ ĐỨC
-</h1>
-
-
-</div>
-
-
-</div>
-
-
-
-<div class="department">
-
-Bộ phận Dược lâm sàng - Thông tin thuốc
-
-</div>
-
-
-
-</header>
-
-
-
-<main>
-
-
-<section id="homePage">
-
-
-<div class="title-search">
-
-
-<h2>
-
-Những lưu ý khi sử dụng thuốc cho phụ nữ mang thai
-<br>
-và phụ nữ đang cho con bú
-
-</h2>
-
-
-
-<div class="search-box">
-
-
-<input 
-id="searchInput"
-type="text"
-placeholder="Tìm tên hoạt chất..."
->
-
-
-<span>
-🔍
-</span>
-
-
-</div>
-
-
-</div>
-
-
-
-<div id="drugContainer" class="drug-grid">
-
-</div>
-
-
-
-</section>
-
-
-
-
-
-
-<section id="detailPage" class="hidden">
-
-
-<button 
-class="back-button"
-onclick="goHome()">
-
-← Quay lại danh sách
-
-</button>
-
-
-
-<div id="drugDetail">
-
-</div>
-
-
-
-</section>
-
-
-
-</main>
-
-
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
-
-
-<script src="app.js"></script>
-
-
-
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a class="brand" href="#/" aria-label="Về trang danh sách hoạt chất">
+        <img
+          class="brand__logo"
+          src="./assets/logo-bv-thu-duc.png"
+          alt="Bệnh viện Đa khoa Khu vực Thủ Đức"
+        >
+      </a>
+
+      <p class="department">
+        Bộ phận Dược lâm sàng - Thông tin thuốc
+      </p>
+    </div>
+  </header>
+
+  <main id="app" class="page-shell">
+    <section id="homePage" class="home-page" aria-labelledby="pageTitle">
+      <div class="hero">
+        <div class="hero__copy">
+          <p class="eyebrow">Tra cứu thông tin thuốc</p>
+          <h1 id="pageTitle" class="hero__title">
+            Những lưu ý khi sử dụng thuốc cho phụ nữ mang thai
+            <span>và phụ nữ đang cho con bú</span>
+          </h1>
+        </div>
+
+        <div class="search-panel">
+          <label class="search-box" for="searchInput">
+            <svg class="search-box__icon" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="m21 21-4.35-4.35m2.35-5.15A7.5 7.5 0 1 1 4 11.5a7.5 7.5 0 0 1 15 0Z"/>
+            </svg>
+            <input
+              id="searchInput"
+              type="search"
+              autocomplete="off"
+              spellcheck="false"
+              placeholder="Tìm tên hoạt chất..."
+              aria-label="Tìm tên hoạt chất"
+            >
+            <button
+              id="clearSearchButton"
+              class="search-box__clear"
+              type="button"
+              aria-label="Xóa nội dung tìm kiếm"
+              hidden
+            >
+              ×
+            </button>
+          </label>
+
+          <div class="filter-row">
+            <label class="select-label" for="groupFilter">Nhóm thuốc</label>
+            <select id="groupFilter" class="group-filter">
+              <option value="">Tất cả nhóm thuốc</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <div class="result-toolbar">
+        <p id="resultCount" class="result-count" aria-live="polite"></p>
+      </div>
+
+      <div id="loadingState" class="state-panel">
+        <span class="spinner" aria-hidden="true"></span>
+        <p>Đang tải dữ liệu từ Google Sheets...</p>
+      </div>
+
+      <div id="errorState" class="state-panel state-panel--error" hidden>
+        <h2>Chưa tải được dữ liệu</h2>
+        <p id="errorMessage">
+          Vui lòng kiểm tra lại đường dẫn Google Sheets và kết nối mạng.
+        </p>
+        <button id="retryButton" class="primary-button" type="button">
+          Thử tải lại
+        </button>
+      </div>
+
+      <div id="emptyState" class="state-panel" hidden>
+        <h2>Không tìm thấy hoạt chất phù hợp</h2>
+        <p>Thử nhập từ khóa ngắn hơn hoặc chọn lại nhóm thuốc.</p>
+      </div>
+
+      <section
+        id="drugContainer"
+        class="drug-grid"
+        aria-label="Danh sách hoạt chất"
+      ></section>
+    </section>
+
+    <section id="detailPage" class="detail-page" hidden>
+      <div class="detail-toolbar">
+        <button id="backButton" class="back-button" type="button">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="m15 18-6-6 6-6"/>
+          </svg>
+          Quay lại danh sách
+        </button>
+
+        <button id="shareButton" class="secondary-button" type="button">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M18 8a3 3 0 1 0-2.83-4M6 14a3 3 0 1 0 0-4m12 10a3 3 0 1 0-2.83-4M8.6 11.5l6.8-4M8.6 12.5l6.8 4"/>
+          </svg>
+          Sao chép liên kết
+        </button>
+      </div>
+
+      <article id="drugDetail" class="drug-detail"></article>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>
+      Bộ phận Dược lâm sàng - Thông tin thuốc<br>
+      Bệnh viện Đa khoa Khu vực Thủ Đức
+    </p>
+    <p>Thông tin chỉ nhằm mục đích tham khảo chuyên môn.</p>
+  </footer>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/papaparse@5.5.3/papaparse.min.js"></script>
+  <script src="./app.js"></script>
 </body>
-
-
 </html>
