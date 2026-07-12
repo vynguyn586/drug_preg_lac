@@ -706,3 +706,102 @@ button {
     transition-duration: 0.01ms !important;
   }
 }
+/* =====================================================
+   ĐIỀU CHỈNH HEADER, TIÊU ĐỀ VÀ KHỐI KHUYẾN CÁO
+===================================================== */
+
+/* Cho phần tiêu đề rộng hơn để dòng đầu không bị ngắt */
+.hero {
+  grid-template-columns: minmax(0, 1.55fr) minmax(420px, 0.85fr);
+  gap: clamp(34px, 5vw, 76px);
+}
+
+/* Tiêu đề đúng hai dòng trên màn hình máy tính */
+.hero__title {
+  width: 100%;
+  max-width: none;
+  font-size: clamp(1.8rem, 2.15vw, 2.25rem);
+  line-height: 1.42;
+  letter-spacing: -0.025em;
+}
+
+.hero__title-line {
+  display: block;
+  white-space: nowrap;
+}
+
+/* Logo bệnh viện */
+.brand {
+  flex: 0 0 auto;
+  text-decoration: none;
+}
+
+.brand__logo {
+  display: block;
+  width: clamp(290px, 27vw, 430px);
+  height: auto;
+  max-height: 72px;
+  object-fit: contain;
+  object-position: left center;
+}
+
+/* Căn giữa cả tiêu đề lẫn nội dung khuyến cáo */
+.detail-section--recommendation {
+  text-align: center;
+}
+
+.detail-section--recommendation .detail-section__title {
+  text-align: center;
+}
+
+.detail-section--recommendation .detail-section__content {
+  text-align: center;
+}
+
+.detail-section--recommendation .detail-section__content p {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Giảm độ rộng khối khuyến cáo nhẹ để bố cục cân đối */
+.detail-section--recommendation {
+  width: min(100%, 1120px);
+  max-width: 1120px;
+}
+
+/* Tablet */
+@media (max-width: 1100px) {
+  .hero {
+    grid-template-columns: 1fr;
+  }
+
+  .hero__title-line {
+    white-space: normal;
+  }
+
+  .search-panel {
+    max-width: 760px;
+  }
+}
+
+/* Điện thoại */
+@media (max-width: 640px) {
+  .hero__title {
+    font-size: 1.72rem;
+    line-height: 1.42;
+  }
+
+  .hero__title-line {
+    display: inline;
+    white-space: normal;
+  }
+
+  .hero__title-line + .hero__title-line::before {
+    content: " ";
+  }
+
+  .brand__logo {
+    width: min(100%, 310px);
+    max-height: 60px;
+  }
+}
