@@ -1,0 +1,611 @@
+/* ==========================
+   CÀI ĐẶT CHUNG
+========================== */
+
+
+* {
+    box-sizing: border-box;
+}
+
+
+body {
+
+    margin: 0;
+
+    font-family: "Be Vietnam Pro", Arial, sans-serif;
+
+    background: #f5fafb;
+
+    color: #075985;
+
+}
+
+
+
+.hidden {
+
+    display:none;
+
+}
+
+
+
+/* ==========================
+   HEADER
+========================== */
+
+
+.header {
+
+    height: 70px;
+
+    background: #d8f3ff;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding: 0 35px;
+
+    border-bottom:1px solid #c4e7f5;
+
+}
+
+
+
+.logo-area {
+
+    display:flex;
+
+    align-items:center;
+
+    gap:15px;
+
+}
+
+
+
+.logo-placeholder {
+
+    width:55px;
+
+    height:55px;
+
+    border-radius:10px;
+
+    background:#008c72;
+
+    color:white;
+
+    font-size:30px;
+
+    font-weight:700;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+}
+
+
+
+.logo-area h1 {
+
+    margin:0;
+
+    color:#00866d;
+
+    font-size:18px;
+
+    line-height:1.2;
+
+}
+
+
+
+.department {
+
+    color:#00866d;
+
+    font-size:20px;
+
+    font-weight:700;
+
+}
+
+
+
+
+
+/* ==========================
+   MAIN
+========================== */
+
+
+main {
+
+    padding:25px 35px;
+
+}
+
+
+
+
+.title-search {
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    gap:30px;
+
+    margin-bottom:35px;
+
+}
+
+
+
+.title-search h2 {
+
+    font-size:28px;
+
+    font-weight:400;
+
+    line-height:1.5;
+
+    color:#0891d1;
+
+    margin:0;
+
+}
+
+
+
+
+
+/* ==========================
+   SEARCH BOX
+========================== */
+
+
+.search-box {
+
+
+    width:40%;
+
+    min-width:300px;
+
+    height:55px;
+
+    border:2px solid #00a8e8;
+
+    border-radius:30px;
+
+    background:white;
+
+    display:flex;
+
+    align-items:center;
+
+    padding:0 20px;
+
+}
+
+
+
+.search-box input {
+
+
+    flex:1;
+
+    border:none;
+
+    outline:none;
+
+    font-size:20px;
+
+    color:#075985;
+
+    font-family:inherit;
+
+
+}
+
+
+
+.search-box span {
+
+
+    font-size:25px;
+
+
+}
+
+
+
+
+
+
+
+/* ==========================
+   DRUG CARD LIST
+========================== */
+
+
+
+.drug-grid {
+
+
+    display:grid;
+
+    grid-template-columns:
+
+    repeat(4,1fr);
+
+    gap:40px 20px;
+
+
+}
+
+
+
+
+
+.drug-card {
+
+
+    border:2px solid #00a8e8;
+
+    border-radius:8px;
+
+    padding:15px;
+
+    background:white;
+
+    cursor:pointer;
+
+    transition:0.25s;
+
+
+}
+
+
+
+.drug-card:hover {
+
+
+    transform:translateY(-5px);
+
+    box-shadow:0 8px 18px rgba(0,0,0,.12);
+
+
+}
+
+
+
+
+
+.drug-name {
+
+
+    margin:0 0 15px 0;
+
+    color:#006c9c;
+
+    font-size:25px;
+
+    font-weight:700;
+
+
+}
+
+
+
+.category {
+
+
+    background:#c9efff;
+
+    color:#006c9c;
+
+    font-size:20px;
+
+    font-weight:700;
+
+    padding:7px 8px;
+
+    border-radius:5px;
+
+    margin-bottom:15px;
+
+
+}
+
+
+
+
+
+.recommend {
+
+
+    font-size:20px;
+
+    line-height:1.5;
+
+    color:#075985;
+
+
+}
+
+
+
+
+
+
+/* ==========================
+   DETAIL PAGE
+========================== */
+
+
+
+.back-button {
+
+
+    background:#008cba;
+
+    color:white;
+
+    border:none;
+
+    border-radius:20px;
+
+    padding:10px 20px;
+
+    cursor:pointer;
+
+    font-size:16px;
+
+    margin-bottom:20px;
+
+
+}
+
+
+
+
+
+.detail-title {
+
+
+    font-size:40px;
+
+    color:#006c9c;
+
+    margin-bottom:10px;
+
+
+}
+
+
+
+.detail-category {
+
+
+    display:inline-block;
+
+    background:#c9efff;
+
+    padding:8px 15px;
+
+    border-radius:6px;
+
+    font-size:22px;
+
+    font-weight:700;
+
+    margin-bottom:30px;
+
+
+}
+
+
+
+
+
+.info-box {
+
+
+    border-radius:15px;
+
+    margin:25px auto;
+
+    padding:25px;
+
+    max-width:90%;
+
+
+}
+
+
+
+.info-box h3 {
+
+
+    text-align:center;
+
+    margin-top:0;
+
+    color:#006c9c;
+
+    font-size:25px;
+
+
+}
+
+
+
+
+
+.pregnancy {
+
+
+    background:#c9f7c9;
+
+
+}
+
+
+
+.note {
+
+
+    background:#f5dfff;
+
+
+}
+
+
+
+.reference {
+
+
+    background:#f3dddd;
+
+
+}
+
+
+
+
+.lactation {
+
+
+    background:#c9f7c9;
+
+
+}
+
+
+
+
+
+
+
+.content {
+
+
+    white-space:pre-line;
+
+    font-size:20px;
+
+    line-height:1.7;
+
+    color:#075985;
+
+
+}
+
+
+
+
+
+/* ==========================
+   RESPONSIVE
+========================== */
+
+
+@media(max-width:1200px){
+
+
+.drug-grid{
+
+grid-template-columns:repeat(3,1fr);
+
+}
+
+
+}
+
+
+
+@media(max-width:800px){
+
+
+.header{
+
+height:auto;
+
+padding:15px;
+
+flex-direction:column;
+
+gap:10px;
+
+}
+
+
+.department{
+
+font-size:16px;
+
+text-align:center;
+
+}
+
+
+
+.title-search{
+
+flex-direction:column;
+
+}
+
+
+
+.search-box{
+
+width:100%;
+
+}
+
+
+
+.drug-grid{
+
+grid-template-columns:1fr;
+
+}
+
+
+.title-search h2{
+
+font-size:22px;
+
+}
+
+
+.detail-title{
+
+font-size:30px;
+
+}
+
+
+
+.info-box{
+
+max-width:100%;
+
+padding:15px;
+
+}
+
+
+
+}
