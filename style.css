@@ -17,7 +17,7 @@
   --radius-sm: 10px;
   --radius-md: 16px;
   --radius-lg: 24px;
-  --content-width: 1500px;
+  --content-width: 1580px;
 }
 
 * {
@@ -802,11 +802,6 @@ button {
   margin-right: auto;
 }
 
-/* Giảm độ rộng khối khuyến cáo nhẹ để bố cục cân đối */
-.detail-section--recommendation {
-  width: min(100%, 1120px);
-}
-
 /* Tablet */
 @media (max-width: 1100px) {
   .hero {
@@ -891,3 +886,85 @@ button {
   .data-update-banner__later,
   .data-update-banner__apply { flex:1; }
 }
+
+/* =====================================================
+   CHUẨN HÓA TRANG CHI TIẾT
+   Tất cả ô xanh, hồng và cam có cùng chiều rộng,
+   chiều cao tối thiểu và nội dung căn giữa.
+===================================================== */
+
+:root {
+  --detail-box-width: 1380px;
+  --detail-box-min-height: 170px;
+}
+
+.detail-section,
+.detail-section--recommendation,
+.detail-section--note,
+.detail-section--reference {
+  width: min(100%, var(--detail-box-width));
+  max-width: var(--detail-box-width);
+  min-height: var(--detail-box-min-height);
+  margin: 24px auto;
+  padding: 28px 34px;
+  border-radius: 22px;
+  box-sizing: border-box;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: stretch;
+}
+
+.detail-section--recommendation {
+  text-align: center;
+}
+
+.detail-section__title,
+.detail-section__content,
+.detail-section__content p {
+  width: 100%;
+  text-align: center;
+}
+
+.detail-section__content {
+  line-height: 1.9;
+  font-size: 1.08rem;
+}
+
+.detail-section__content p {
+  max-width: 1180px;
+  margin: 0 auto 14px;
+}
+
+.detail-section__content p:last-child {
+  margin-bottom: 0;
+}
+
+.detail-section__content ul,
+.detail-section__content ol {
+  display: inline-block;
+  max-width: 1180px;
+  margin: 0.55em auto;
+  padding-left: 1.4em;
+  text-align: left;
+}
+
+@media (max-width: 640px) {
+  .detail-section,
+  .detail-section--recommendation,
+  .detail-section--note,
+  .detail-section--reference {
+    width: 100%;
+    max-width: 100%;
+    min-height: 150px;
+    padding: 20px 17px;
+  }
+
+  .detail-section__content {
+    font-size: 1rem;
+    line-height: 1.75;
+  }
+}
+
